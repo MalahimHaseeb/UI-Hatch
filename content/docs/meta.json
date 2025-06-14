@@ -1,0 +1,11 @@
+{
+  "title": "docs",
+  "root": true,
+  "pages": [
+    "index",
+    "---Hooks---",
+    "./field-renderer",
+    "---Components---",
+    "..."
+  ]
+}
