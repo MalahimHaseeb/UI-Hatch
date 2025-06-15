@@ -1,0 +1,20 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "ui-hatch",
+    "homepage": "https://ui-hatch.vercel.app",
+    "items": [
+        {
+            "name": "smart-dropdown",
+            "type": "registry:ui",
+            "title": "Smart Dropdown",
+            "description": "A flexible dropdown that works with any trigger (div, button, box) and supports default or custom action handlers.",
+            "files": [
+                {
+                    "path": "/components/smart-dropdown/smart-dropdown.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/smart-dropdown.tsx"
+                }
+            ]
+        }
+    ]
+}

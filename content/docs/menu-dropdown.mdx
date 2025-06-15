@@ -1,0 +1,137 @@
+---
+title: Menu Dropdown
+description: A flexible dropdown that accepts any trigger element and customizable menu actions.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import { Button } from '@/components/ui/button';
+import { UploadIcon } from 'lucide-react';
+import MenuDropdownDemo from '@/components/MenuDropdownDemo';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+# Menu Dropdown
+
+`MenuDropdown` is a versatile dropdown component that allows you to pass **any trigger element** (like `div`, `Box`, `Button`, etc.) and fully customize the dropdown menu.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    Run the following command in terminal to add these components in your project.
+
+    <PackageInstall name={'smart-dropdown'} />
+  </Step>
+  <Step>
+    ### Import
+
+    You can now import this component anywhere you need to use it.
+
+    <DynamicCodeBlock lang={'tsx'} code={`import { MenuDropdown } from '@/components/ui/hatch/smart-dropdown';`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<MenuDropdownDemo />}
+  code={`
+    <MenuDropdown
+      triggerElement={
+        <Button variant="outline">
+          <UploadIcon className="mr-2" />
+          Upload Files
+        </Button>
+      }
+      menuItems={[
+        {
+          label: "Custom Action",
+          action: () => console.log("Custom action triggered"),
+          icon: <span>✨</span>,
+          className: "text-purple-600 hover:bg-purple-50"
+        }
+      ]}
+    />
+  `}
+  name={'smart-dropdown'}
+/>
+
+## Props
+
+<TypeTable
+  type={{
+    triggerElement: {
+      description: 'React element that will trigger the dropdown when clicked',
+      type: 'React.ReactElement',
+      required: true
+    },
+    menuItems: {
+      description: 'Array of custom menu items to display in the dropdown',
+      type: 'MenuItem[]',
+      default: '[]'
+    },
+    includeDeviceUpload: {
+      description: 'Whether to include the default "Upload from device" option',
+      type: 'boolean',
+      default: 'true'
+    },
+    fileInputId: {
+      description: 'ID of the hidden file input element (used with includeDeviceUpload)',
+      type: 'string',
+      default: '"fileInput"'
+    },
+    className: {
+      description: 'Additional className for the dropdown content',
+      type: 'string'
+    },
+    align: {
+      description: 'Alignment of the dropdown relative to the trigger',
+      type: '"start" | "center" | "end"',
+      default: '"end"'
+    }
+  }}
+/>
+
+## MenuItem Type
+
+<TypeTable
+  type={{
+    label: {
+      description: 'Text displayed for the menu item',
+      type: 'string',
+      required: true
+    },
+    action: {
+      description: 'Function to execute when the menu item is clicked',
+      type: '() => void',
+      required: true
+    },
+    icon: {
+      description: 'Optional icon to display before the label',
+      type: 'React.ReactNode'
+    },
+    className: {
+      description: 'Additional className for the menu item',
+      type: 'string'
+    }
+  }}
+/>
+
+## ✨ Features
+
+- Accepts any valid React element as the trigger
+- Pass your own actions and icons
+- Optional built-in **upload from device** logic
+- Accessible and extendable
+- Easy to integrate with any UI
+
+## 🧠 When to Use
+
+Use `MenuDropdown` when:
+- You need a flexible dropdown trigger
+- You want a reusable menu component with pluggable actions
+- You want to combine default and custom menu actions
