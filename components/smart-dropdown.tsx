@@ -15,17 +15,23 @@ interface MenuItem {
   className?: string
 }
 
+interface TriggerElementProps {
+  onClick?: (e: React.MouseEvent) => void
+  className?: string
+  children?: React.ReactNode
+  // Add other known props your trigger elements might use
+  variant?: string
+  size?: string
+  disabled?: boolean
+}
+
 interface MenuDropdownProps {
-  triggerElement: React.ReactElement<{
-    onClick?: (e: React.MouseEvent) => void;
-    className?: string;
-    [key: string]: any;
-  }>;
-  menuItems?: MenuItem[];
-  includeDeviceUpload?: boolean;
-  fileInputId?: string;
-  className?: string;
-  align?: "start" | "center" | "end";
+  triggerElement: React.ReactElement<TriggerElementProps>
+  menuItems?: MenuItem[]
+  includeDeviceUpload?: boolean
+  fileInputId?: string
+  className?: string
+  align?: "start" | "center" | "end"
 }
 
 const MenuDropdown = React.forwardRef<HTMLDivElement, MenuDropdownProps>(
@@ -46,21 +52,21 @@ const MenuDropdown = React.forwardRef<HTMLDivElement, MenuDropdownProps>(
         label: "Upload from device",
         action: () => document.getElementById(fileInputId)?.click(),
       },
-    ].filter(Boolean) as MenuItem[];
+    ].filter(Boolean) as MenuItem[]
 
-    const allMenuItems = [...defaultItems, ...menuItems];
+    const allMenuItems = [...defaultItems, ...menuItems]
 
     const trigger = React.cloneElement(triggerElement, {
       onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        triggerElement.props.onClick?.(e);
+        e.preventDefault()
+        e.stopPropagation()
+        triggerElement.props.onClick?.(e)
       },
       className: cn(
         "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         triggerElement.props.className
       ),
-    });
+    })
 
     return (
       <DropdownMenu>
@@ -77,9 +83,9 @@ const MenuDropdown = React.forwardRef<HTMLDivElement, MenuDropdownProps>(
             <DropdownMenuItem
               key={index}
               onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                item.action();
+                e.preventDefault()
+                e.stopPropagation()
+                item.action()
               }}
               className={cn(
                 "cursor-pointer focus:bg-accent focus:text-accent-foreground",
@@ -94,10 +100,10 @@ const MenuDropdown = React.forwardRef<HTMLDivElement, MenuDropdownProps>(
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-    );
+    )
   }
-);
+)
 
-MenuDropdown.displayName = "MenuDropdown";
+MenuDropdown.displayName = "MenuDropdown"
 
-export { MenuDropdown };
+export { MenuDropdown }
