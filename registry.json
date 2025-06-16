@@ -10,7 +10,7 @@
             "description": "A flexible dropdown that works with any trigger (div, button, box) and supports default or custom action handlers.",
             "files": [
                 {
-                    "path": "/components/smart-dropdown/smart-dropdown.tsx",
+                    "path": "./components/smart-dropdown.tsx",
                     "type": "registry:ui",
                     "target": "components/ui/hatch/smart-dropdown.tsx"
                 }
