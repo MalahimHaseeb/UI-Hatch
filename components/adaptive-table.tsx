@@ -3,11 +3,13 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface Column<T> {
-    header: string;
-    accessorKey: keyof T;
-    cell?: (value: any, item: T) => React.ReactNode;
-}
+type Column<T> = {
+    [K in keyof T]: {
+        header: string;
+        accessorKey: K;
+        cell?: (value: T[K], item: T) => React.ReactNode;
+    };
+}[keyof T];
 
 interface AdaptiveTableProps<T> {
     data: T[];

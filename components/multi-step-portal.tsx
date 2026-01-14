@@ -13,7 +13,7 @@ interface Step {
 
 interface MultiStepPortalProps {
     steps: Step[];
-    onComplete: (data: any) => void;
+    onComplete: (data: Record<string, unknown>) => void;
     className?: string;
 }
 
