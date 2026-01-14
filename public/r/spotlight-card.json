@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "type": "registry:ui",
+  "title": "Spotlight Card",
+  "description": "A card that tracks mouse position for a glow effect.",
+  "files": [
+    {
+      "path": "./components/spotlight-card.tsx",
+      "content": "\"use client\";\n\nimport React, { useRef, useState } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {\n    children: React.ReactNode;\n    spotlightColor?: string;\n    spotlightSize?: number;\n}\n\nexport function SpotlightCard({\n    children,\n    className,\n    spotlightColor = \"rgba(255, 255, 255, 0.1)\",\n    spotlightSize = 400,\n    ...props\n}: SpotlightCardProps) {\n    const containerRef = useRef<HTMLDivElement>(null);\n    const [position, setPosition] = useState({ x: 0, y: 0 });\n    const [opacity, setOpacity] = useState(0);\n\n    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n        if (!containerRef.current) return;\n\n        const rect = containerRef.current.getBoundingClientRect();\n        setPosition({\n            x: e.clientX - rect.left,\n            y: e.clientY - rect.top,\n        });\n    };\n\n    const handleMouseEnter = () => setOpacity(1);\n    const handleMouseLeave = () => setOpacity(0);\n\n    return (\n        <div\n            ref={containerRef}\n            onMouseMove={handleMouseMove}\n            onMouseEnter={handleMouseEnter}\n            onMouseLeave={handleMouseLeave}\n            className={cn(\n                \"relative overflow-hidden rounded-xl border border-white/10 bg-black p-8 transition-colors hover:border-white/20\",\n                className\n            )}\n            {...props}\n        >\n            <div\n                className=\"pointer-events-none absolute -inset-px transition-opacity duration-300\"\n                style={{\n                    opacity,\n                    background: `radial-gradient(${spotlightSize}px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,\n                }}\n            />\n            <div className=\"relative z-10\">{children}</div>\n        </div>\n    );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/hatch/spotlight-card.tsx"
+    }
+  ]
+}
