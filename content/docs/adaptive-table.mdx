@@ -1,0 +1,78 @@
+---
+title: Adaptive Table
+description: A responsive table that automatically transforms into a Card Grid on mobile devices.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import AdaptiveTableDemo from '@/components/demos/AdaptiveTableDemo';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+# Adaptive Table
+
+The `AdaptiveTable` solves the biggest problem with data tables: **mobile responsiveness**. Instead of forcing horizontal scrolling, it cleverly collapses into actionable cards on smaller screens.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    Run the following command to add this component to your project.
+
+    <PackageInstall name={'adaptive-table'} />
+  </Step>
+  <Step>
+    ### Import
+
+    <DynamicCodeBlock lang={'tsx'} code={`import { AdaptiveTable } from '@/components/ui/hatch/adaptive-table';`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<AdaptiveTableDemo />}
+  code={`
+const columns = [
+  { header: "Product", accessorKey: "name" },
+  { header: "Price", accessorKey: "price" },
+];
+
+<AdaptiveTable 
+  data={myProducts} 
+  columns={columns} 
+  mobileCardTitle="name" 
+/>
+`}
+  name={'adaptive-table'}
+/>
+
+## Props
+
+<TypeTable
+  type={{
+    data: {
+      description: 'Array of data objects to display',
+      type: 'T[]',
+      required: true
+    },
+    columns: {
+      description: 'Definitions for table headers and data mapping',
+      type: 'Column<T>[]',
+      required: true
+    },
+    mobileCardTitle: {
+      description: 'The key to use as the bold header in Mobile Card view',
+      type: 'keyof T'
+    }
+  }}
+/>
+
+## ✨ Why it's Unique
+
+- **Zero configuration responsiveness**: Automatically handles layout shifts.
+- **Custom Cell Rendering**: Pass a `cell` function in columns to render badges, icons, or buttons.
+- **Type Safe**: Works with your existing TypeScript interfaces.

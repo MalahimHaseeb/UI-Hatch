@@ -1,0 +1,113 @@
+---
+title: Bento Grid
+description: A flexible and responsive grid system for showcasing features, similar to Apple's design language.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import BentoGridDemo from '@/components/demos/BentoGridDemo';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+# Bento Grid
+
+`BentoGrid` is a layout system that allows you to create dense, visually interesting feature grids. It's heavily inspired by modern landing page designs.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    Run the following command to add this component to your project.
+
+    <PackageInstall name={'bento-grid'} />
+  </Step>
+  <Step>
+    ### Import
+
+    Import the component into your project.
+
+    <DynamicCodeBlock lang={'tsx'} code={`import { BentoGrid, BentoCard } from '@/components/ui/hatch/bento-grid';`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<BentoGridDemo />}
+  code={`
+import { BentoGrid, BentoCard } from '@/components/ui/hatch/bento-grid';
+import { BellIcon, CalendarIcon, FileTextIcon, GlobeIcon, InputIcon } from "lucide-react";
+
+export default function Example() {
+  return (
+    <BentoGrid>
+      <BentoCard 
+        name="Files" 
+        description="Save your files." 
+        Icon={FileTextIcon} 
+        href="/" 
+        cta="Learn more" 
+      />
+      {/* Add more BentoCards */}
+    </BentoGrid>
+  );
+}
+  `}
+  name={'bento-grid'}
+/>
+
+## BentoCard Props
+
+<TypeTable
+  type={{
+    name: {
+      description: 'The title of the card',
+      type: 'string',
+      required: true
+    },
+    description: {
+      description: 'The description text',
+      type: 'string',
+      required: true
+    },
+    Icon: {
+      description: 'Lucide icon component',
+      type: 'LucideIcon',
+      required: true
+    },
+    background: {
+      description: 'Background element (image, color, gradient)',
+      type: 'React.ReactNode'
+    },
+    href: {
+      description: 'Link for the CTA button',
+      type: 'string',
+      required: true
+    },
+    cta: {
+      description: 'Call to action button text',
+      type: 'string',
+      required: true
+    },
+    className: {
+      description: 'Additional CSS classes for grid positioning',
+      type: 'string'
+    }
+  }}
+/>
+
+## ✨ Features
+
+- Fully responsive
+- Built-in hover animations
+- Clean, Apple-like aesthetics
+- Easily customizable with Tailwind CSS
+
+## 🧠 When to Use
+
+- Use for "Features" sections
+- Use for dashboard overviews
+- Use when you want to show a lot of information in a compact yet beautiful way

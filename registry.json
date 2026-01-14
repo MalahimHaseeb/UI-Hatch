@@ -15,6 +15,84 @@
                     "target": "components/ui/hatch/smart-dropdown.tsx"
                 }
             ]
+        },
+        {
+            "name": "spotlight-card",
+            "type": "registry:ui",
+            "title": "Spotlight Card",
+            "description": "A card that tracks mouse position for a glow effect.",
+            "files": [
+                {
+                    "path": "./components/spotlight-card.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/spotlight-card.tsx"
+                }
+            ]
+        },
+        {
+            "name": "border-beam",
+            "type": "registry:ui",
+            "title": "Border Beam",
+            "description": "An animated light beam that travels around the border of a container.",
+            "files": [
+                {
+                    "path": "./components/border-beam.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/border-beam.tsx"
+                }
+            ]
+        },
+        {
+            "name": "bento-grid",
+            "type": "registry:ui",
+            "title": "Bento Grid",
+            "description": "A flexible grid system for showcasing features.",
+            "files": [
+                {
+                    "path": "./components/bento-grid.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/bento-grid.tsx"
+                }
+            ]
+        },
+        {
+            "name": "adaptive-table",
+            "type": "registry:ui",
+            "title": "Adaptive Table",
+            "description": "A responsive table that switches to a card-based layout on mobile.",
+            "files": [
+                {
+                    "path": "./components/adaptive-table.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/adaptive-table.tsx"
+                }
+            ]
+        },
+        {
+            "name": "feedback-collector",
+            "type": "registry:ui",
+            "title": "Feedback Collector",
+            "description": "A support widget that captures metadata and user feedback automatically.",
+            "files": [
+                {
+                    "path": "./components/feedback-collector.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/feedback-collector.tsx"
+                }
+            ]
+        },
+        {
+            "name": "multi-step-portal",
+            "type": "registry:ui",
+            "title": "Multi-Step Portal",
+            "description": "A workflow manager for complex multi-step forms or onboarding processes.",
+            "files": [
+                {
+                    "path": "./components/multi-step-portal.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/hatch/multi-step-portal.tsx"
+                }
+            ]
         }
     ]
 }

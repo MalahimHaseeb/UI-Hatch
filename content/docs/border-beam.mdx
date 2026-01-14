@@ -1,0 +1,103 @@
+---
+title: Border Beam
+description: An animated light beam that travels around the border of any container.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import BorderBeamDemo from '@/components/demos/BorderBeamDemo';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+# Border Beam
+
+`BorderBeam` adds a sleek, animated border effect to your components. It uses hardware-accelerated CSS animations for a smooth experience.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    Run the following command to add this component to your project.
+
+    <PackageInstall name={'border-beam'} />
+  </Step>
+  <Step>
+    ### Import
+
+    Import the component into your project.
+
+    <DynamicCodeBlock lang={'tsx'} code={`import { BorderBeam } from '@/components/ui/hatch/border-beam';`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<BorderBeamDemo />}
+  code={`
+import { BorderBeam } from '@/components/ui/hatch/border-beam';
+
+export default function Example() {
+  return (
+    <div className="relative rounded-lg border p-10">
+      <span>Beam Effect</span>
+      <BorderBeam size={250} duration={12} delay={9} />
+    </div>
+  );
+}
+  `}
+  name={'border-beam'}
+/>
+
+## Props
+
+<TypeTable
+  type={{
+    size: {
+      description: 'The size/length of the beam',
+      type: 'number',
+      default: '200'
+    },
+    duration: {
+      description: 'The duration of one full cycle in seconds',
+      type: 'number',
+      default: '15'
+    },
+    borderWidth: {
+      description: 'The thickness of the border',
+      type: 'number',
+      default: '1.5'
+    },
+    colorFrom: {
+      description: 'Starting color of the gradient beam',
+      type: 'string',
+      default: '#ffaa40'
+    },
+    colorTo: {
+      description: 'Ending color of the gradient beam',
+      type: 'string',
+      default: '#9c40ff'
+    },
+    delay: {
+      description: 'Animation delay in seconds',
+      type: 'number',
+      default: '0'
+    }
+  }}
+/>
+
+## ✨ Features
+
+- Smooth CSS animations
+- Highly customizable gradients
+- Works on any container with `relative` positioning and `overflow-hidden`
+- Lightweight and dependency-free
+
+## 🧠 When to Use
+
+- Use to draw attention to specific sections
+- Use for "Pro" or "Premium" feature cards
+- Use for loading states or interactive buttons

@@ -1,0 +1,59 @@
+---
+title: Multi-Step Portal
+description: A logic-heavy component for managing linear workflows and complex on-boarding forms.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import MultiStepPortalDemo from '@/components/demos/MultiStepPortalDemo';
+
+# Multi-Step Portal
+
+Managing "Next" and "Previous" state across 5 different form sections is tedious. `MultiStepPortal` abstracts the state, the progress logic, and the navigation UI into one component.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    <PackageInstall name={'multi-step-portal'} />
+  </Step>
+  <Step>
+    ### Configuration
+
+    Define your steps as an array of objects and pass them in.
+
+    <DynamicCodeBlock lang={'tsx'} code={`
+const steps = [
+  { title: "Account", content: <AccountForm /> },
+  { title: "Plan", content: <PlanSelector /> }
+];
+
+<MultiStepPortal 
+  steps={steps} 
+  onComplete={(data) => console.log(data)} 
+/>
+`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<MultiStepPortalDemo />}
+  code={`<MultiStepPortal steps={steps} onComplete={...} />`}
+  name={'multi-step-portal'}
+/>
+
+## ✨ Key Features
+
+- **Automated Progress**: Visual timeline updates as you move through steps.
+- **State Isolation**: Each step is its own component; the portal handles the transition animation.
+- **Flexible Content**: Steps can contain forms, images, or interactive selection tools.
+- **Completion Hook**: A unified callback for when the user hits "Finish".
+
+## 🛡️ Solves...
+...the frequent need for complex on-boarding or multi-page wizards without polluting your parent components with `step === 1 ? ... : ...` logic.

@@ -1,0 +1,92 @@
+---
+title: Spotlight Card
+description: A high-end card component with a mouse-following spotlight glow effect.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import SpotlightCardDemo from '@/components/demos/SpotlightCardDemo';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+# Spotlight Card
+
+`SpotlightCard` is a modern UI element that adds a dynamic glow effect following the user's mouse. Perfect for feature sections and landing pages.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    Run the following command to add this component to your project.
+
+    <PackageInstall name={'spotlight-card'} />
+  </Step>
+  <Step>
+    ### Import
+
+    Import the component into your project.
+
+    <DynamicCodeBlock lang={'tsx'} code={`import { SpotlightCard } from '@/components/ui/hatch/spotlight-card';`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<SpotlightCardDemo />}
+  code={`
+import { SpotlightCard } from '@/components/ui/hatch/spotlight-card';
+
+export default function Example() {
+  return (
+    <SpotlightCard>
+      <h3>Spotlight Effect</h3>
+      <p>Hover over this card to see the effect.</p>
+    </SpotlightCard>
+  );
+}
+  `}
+  name={'spotlight-card'}
+/>
+
+## Props
+
+<TypeTable
+  type={{
+    children: {
+      description: 'The content of the card',
+      type: 'React.ReactNode',
+      required: true
+    },
+    spotlightColor: {
+      description: 'The color of the spotlight effect',
+      type: 'string',
+      default: 'rgba(255, 255, 255, 0.1)'
+    },
+    spotlightSize: {
+      description: 'The size/radius of the spotlight',
+      type: 'number',
+      default: '400'
+    },
+    className: {
+      description: 'Additional CSS classes',
+      type: 'string'
+    }
+  }}
+/>
+
+## ✨ Features
+
+- Smooth mouse tracking
+- Customizable color and size
+- Built with standard React and CSS
+- Fully responsive and performant
+
+## 🧠 When to Use
+
+- Use for feature highlights
+- Use for call-to-action cards
+- Use when you want to add a "premium" feel to your layout

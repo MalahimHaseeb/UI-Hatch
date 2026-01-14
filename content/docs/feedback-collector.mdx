@@ -1,0 +1,62 @@
+---
+title: Feedback Collector
+description: A floating widget that automatically captures user feedback and technical metadata.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import PackageInstall from '@/components/docs/PackageInstall';
+import PreviewTabs from '@/components/docs/PreviewTabs';
+import FeedbackCollectorDemo from '@/components/demos/FeedbackCollectorDemo';
+
+# Feedback Collector
+
+The `FeedbackCollector` is an all-in-one support widget. It doesn't just collect text; it automatically gathers the context developers need to fix bugs.
+
+## How To Use
+
+<Steps>
+  <Step>
+    ### Install
+
+    <PackageInstall name={'feedback-collector'} />
+  </Step>
+  <Step>
+    ### Global Setup
+
+    Add it to your root `layout.tsx` to make it available on every page.
+
+    <DynamicCodeBlock lang={'tsx'} code={`
+import { FeedbackCollector } from '@/components/ui/hatch/feedback-collector';
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <FeedbackCollector />
+      </body>
+    </html>
+  );
+}`}/>
+  </Step>
+</Steps>
+
+## Preview
+
+<PreviewTabs
+  component={<FeedbackCollectorDemo />}
+  code={`<FeedbackCollector />`}
+  name={'feedback-collector'}
+/>
+
+## 🧠 Smart Actions
+
+When a user submits feedback, this component captures:
+- **Environment**: User Agent, OS, Screen Resolution.
+- **Context**: The exact URL they were on.
+- **Timing**: Precise ISO timestamp.
+- **Category**: Classifies as Bug, Feature, or Other.
+
+## 🚀 Easy Way to Solve...
+...the gap between users seeing a bug and developers having enough info to fix it. This component handles the UI, the state, and the metadata packaging out of the box.
